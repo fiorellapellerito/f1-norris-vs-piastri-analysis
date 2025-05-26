@@ -42,31 +42,29 @@ plt.tight_layout()
 plt.show()
 
 #Print each driver's average lap time and consistency
-print(f"Norris' average lap time is: {norris_times.mean():.3f} s")
-print(f"Piastri's average lap time is: {piastri_times.mean():.3f} s")
-print(f"Norris' lap consistency (std) is: {norris_times.std():.3f} s")
-print(f"Piastri's lap consistency (std) is: {piastri_times.std():.3f} s")
+print(f"Norris' average lap time is: {norris_times.mean():.3f}s")
+print(f"Piastri's average lap time is: {piastri_times.mean():.3f}s")
+print(f"Norris' lap consistency (std) is: {norris_times.std():.3f}s")
+print(f"Piastri's lap consistency (std) is: {piastri_times.std():.3f}s")
 
 #Select one specific lap from each driver
 lap_norris = norris_quicklaps[norris_quicklaps['LapNumber'] == 28].iloc[0]
 lap_piastri = piastri_quicklaps[piastri_quicklaps['LapNumber'] == 28].iloc[0]
 
-#Get Telemetry Data for each driver
+#Get Telemetry Data for each driver on lap 28
 tel_nor = lap_norris.get_telemetry().add_distance()
 tel_pia = lap_piastri.get_telemetry().add_distance()
 
-#Plot throttle, brake, speed, and gear on dual y-axes
-fig, ax1 = plt.subplots(figsize=(12, 6))
-
-#Throttle and brake (x-axis)
+#Get throttle and brake average
 throttle_avg_nor = tel_nor['Throttle'].mean()
 brake_avg_nor = tel_nor['Brake'].mean()
 speed_avg_nor = tel_nor['Speed'].mean()
-
-
 throttle_avg_pia = tel_pia['Throttle'].mean()
 brake_avg_pia = tel_pia['Brake'].mean()
 speed_avg_pia = tel_pia['Speed'].mean()
+
+#Plot throttle and brake (x-axis)
+fig, ax1 = plt.subplots(figsize=(12, 6))
 
 ax1.plot(tel_nor['Distance'], tel_nor['Throttle'] * 100, label='Norris Throttle', color=(1.0, 0.53, 0.0))
 ax1.plot(tel_pia['Distance'], tel_pia['Throttle'] * 100, label='Piastri Throttle', color=(0.0, 0.75, 1.0))
@@ -79,7 +77,7 @@ ax1.set_ylabel('Pedal Input (%)')
 ax1.legend(loc='upper left')
 ax1.grid(True)
 
-#Speed and gear (y-axis)
+#Plot speed and gear (y-axis)
 norris_avg_speed = tel_nor['Speed'].mean()
 piastri_avg_speed = tel_pia['Speed'].mean()
 
@@ -127,6 +125,27 @@ delta_pia = pred_pia[0] - actual_pia
 
 print(f"Predicted Norris' Lap Time: {pred_nor[0]:.3f}s")
 print(f"Predicted Piastri's Lap Time: {pred_pia[0]:.3f}s")
+
+#Plot ML Model
+fig, ax = plt.subplots(figsize=(12, 6))
+ax.axis('off')
+    
+table_data = [
+["Driver", "Avg Lap Time (s)", "Consistency (std)", "ML Prediction (s)", "Actual (s)", "Δ Prediction (s)"],
+["Norris", f"{norris_times.mean():.3f}", f"{norris_times.std():.3f}", f"{pred_nor[0]:.3f}", f"{actual_nor:.3f}", f"{delta_nor:+.3f}"],
+["Piastri", f"{piastri_times.mean():.3f}", f"{piastri_times.std():.3f}", f"{pred_pia[0]:.3f}", f"{actual_pia:.3f}", f"{delta_pia:+.3f}"]
+]
+ 
+table = ax.table(cellText=table_data, loc='center', cellLoc='center', colLoc='center', edges='horizontal')
+table.scale(1, 2)
+table.auto_set_font_size(False)
+table.set_fontsize(12)
+    
+ax.text(0.2, 0.8, "Performance Summary Table - Lando Norris vs. Oscar Piastri", fontsize=16, weight='bold')
+
+plt.title
+fig.tight_layout()
+plt.show()
 
 #Save the project as a pdf
 def add_logo(ax, path, zoom=0.1, x=0.95, y=1.05):
