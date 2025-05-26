@@ -29,7 +29,7 @@ The goal is to simulate the type of post-race analysis used by race engineers an
 - `Pandas` – for data analysis and processing.  
 - `Matplotlib` – for visualizing lap time trends and telemetry inputs.  
 - `matplotlib.backends.backend_pdf` – for generating a multi-page PDF report.
-- `Scikit-Learn – for handling predictive analysis (ML Model).
+- `scikit-learn` – for handling predictive analysis (ML Model).
 
 ## Outputs
 
