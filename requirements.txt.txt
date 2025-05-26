@@ -1,0 +1,3 @@
+git add requirements.txt
+git commit -m "Add dependencies for Streamlit deployment"
+git push origin main
