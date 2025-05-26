@@ -1,5 +1,5 @@
 ## F1 Lando Norris vs. Oscar Piastri Performance Comparison.
-Telemetry and ML-based drivers' performance comparison using FastF1 and Python 
+Telemetry and ML-based drivers' performance comparison using FastF1 and Python. 
 
 **Abu Dhabi Grand Prix 2024**  
 *Author: Fiorella Pellerito*  
@@ -9,11 +9,11 @@ Telemetry and ML-based drivers' performance comparison using FastF1 and Python
 
 This project analyzes and compares the driving performance of McLaren F1 drivers **Lando Norris** and **Oscar Piastri** during the 2024 Abu Dhabi Grand Prix. Using official telemetry and lap data accessed via the `FastF1` Python library, the analysis focuses on:
 
-- Lap-by-lap performance comparison  
-- Throttle and brake telemetry on Lap 28  
-- Race pace consistency (standard deviation)  
-- Telemetry-based visual insights
-- A ML model that predicts lap times
+- Lap-by-lap performance comparison.  
+- Throttle and brake telemetry on Lap 28.  
+- Race pace consistency (standard deviation). 
+- Telemetry-based visual insights.
+- A ML model that predicts lap times.
 
 The goal is to simulate the type of post-race analysis used by race engineers and strategists to understand driver behavior, identify performance differences, and evaluate consistency across a Grand Prix.
 
@@ -40,8 +40,8 @@ The goal is to simulate the type of post-race analysis used by race engineers an
 
 ## Future Work
 
-- Add corner-specific delta comparisons  
-- Build a Streamlit app version  
-- Extend to other drivers and races (Monaco, Silverstone, etc.)
+- Add corner-specific delta comparisons.  
+- Build a Streamlit app version.  
+- Extend to other drivers and races (Monaco, Silverstone, etc.).
 
 DISLCAIMER: McLaren Logo was used for illustrative/personal purposes only.
