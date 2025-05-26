@@ -44,4 +44,4 @@ The goal is to simulate the type of post-race analysis used by race engineers an
 - Build a Streamlit app version.  
 - Extend to other drivers and races (Monaco, Silverstone, etc.).
 
-DISLCAIMER: McLaren Logo was used for illustrative/personal purposes only.
+DISCLAIMER: McLaren Logo was used for illustrative/personal purposes only.
